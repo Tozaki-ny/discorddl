@@ -196,36 +196,36 @@ async function settings() {
       word = `     `
       for (i = 0; i < word.length; i++) {
         process.stdout.write(chalk.white(word.charAt(i)))
-        await sleep(5)
+        await sleep(1)
       }
       word = `Settings`
       for (i = 0; i < word.length; i++) {
         process.stdout.write(chalk.white.underline(word.charAt(i)))
-        await sleep(5)
+        await sleep(1)
       }
       word = `     `
       for (i = 0; i < word.length; i++) {
         process.stdout.write(chalk.white(word.charAt(i)))
-        await sleep(5)
+        await sleep(1)
       }
       process.stdout.write(chalk.redBright('\n1'))
       word = ` Channel Folders `
       for (i = 0; i < word.length; i++) {
         process.stdout.write(chalk.yellowBright(word.charAt(i)))
-        await sleep(5)
+        await sleep(1)
       }
       find.file(__dirname, async function(files) {
         if (files.includes(`${__dirname}\\spc1.txt`)) {
           word = `[Deactivated]`
           for (i = 0; i < word.length; i++) {
             process.stdout.write(chalk.redBright(word.charAt(i)))
-            await sleep(5)
+            await sleep(1)
           }
         } else {
           word = `[Activated]`
           for (i = 0; i < word.length; i++) {
             process.stdout.write(chalk.greenBright(word.charAt(i)))
-            await sleep(5)
+            await sleep(1)
           }
         }
       })
@@ -233,55 +233,55 @@ async function settings() {
       word = ` - Creates a seperate folder for every channel when downloading files`
       for (i = 0; i < word.length; i++) {
         process.stdout.write(chalk.grey(word.charAt(i)))
-        await sleep(5)
+        await sleep(1)
       }
       process.stdout.write(chalk.redBright('\n2'))
       word = ` Recreate start.bat `
       for (i = 0; i < word.length; i++) {
         process.stdout.write(chalk.yellowBright(word.charAt(i)))
-        await sleep(5)
+        await sleep(1)
       }
       word = `[Instant]`
       for (i = 0; i < word.length; i++) {
         process.stdout.write(chalk.blueBright(word.charAt(i)))
-        await sleep(5)
+        await sleep(1)
       }
       word = ` - Deletes and renews the start.bat file for windows computers`
       for (i = 0; i < word.length; i++) {
         process.stdout.write(chalk.grey(word.charAt(i)))
-        await sleep(5)
+        await sleep(1)
       }
       process.stdout.write(chalk.redBright('\n3'))
       word = ` Deinstall `
       for (i = 0; i < word.length; i++) {
         process.stdout.write(chalk.red(word.charAt(i)))
-        await sleep(5)
+        await sleep(1)
       }
       word = `[Instant]`
       for (i = 0; i < word.length; i++) {
         process.stdout.write(chalk.blueBright(word.charAt(i)))
-        await sleep(5)
+        await sleep(1)
       }
       word = ` - Deletes all files created by this program, later deletes itself`
       for (i = 0; i < word.length; i++) {
         process.stdout.write(chalk.grey(word.charAt(i)))
-        await sleep(5)
+        await sleep(1)
       }
       process.stdout.write(chalk.redBright('\n4'))
       word = ` Back to menu `
       for (i = 0; i < word.length; i++) {
         process.stdout.write(chalk.greenBright(word.charAt(i)))
-        await sleep(5)
+        await sleep(1)
       }
       word = `[Instant]`
       for (i = 0; i < word.length; i++) {
         process.stdout.write(chalk.blueBright(word.charAt(i)))
-        await sleep(5)
+        await sleep(1)
       }
       word = ` - Will simply send you back to the main menu\n`
       for (i = 0; i < word.length; i++) {
         process.stdout.write(chalk.grey(word.charAt(i)))
-        await sleep(5)
+        await sleep(1)
       }
       opt = await io.read()
       if (opt === '1') {
@@ -323,7 +323,7 @@ async function settings() {
       await sleep(1000)
       await settings()
       } else if (opt === '3') {
-        find.file(__dirname, async function(files) {
+        await find.file(__dirname, async function(files) {
           if (files.includes(`${__dirname}\\config.txt`)) {
             word = `\nDeleting config.txt...`
             for (i = 0; i < word.length; i++) {
@@ -331,11 +331,11 @@ async function settings() {
             await sleep(5)
             }
             await sleep(1500)
-            fs.unlinkSync(`${__dirname}\\config.txt`)
+            await fs.unlinkSync(`${__dirname}\\config.txt`)
           }
         })
-        await sleep(5000)
-        find.file(__dirname, async function(files) {
+        await sleep(1000)
+        await find.file(__dirname, async function(files) {
           if (files.includes(`${__dirname}\\token.txt`)) {
             word = `\nDeleting token.txt...`
             for (i = 0; i < word.length; i++) {
@@ -343,11 +343,11 @@ async function settings() {
             await sleep(5)
             }
             await sleep(1500)
-            fs.unlinkSync(`${__dirname}\\token.txt`)
+            await fs.unlinkSync(`${__dirname}\\token.txt`)
           }
         })
-        await sleep(5000)
-        find.file(__dirname, async function(files) {
+        await sleep(1000)
+        await find.file(__dirname, async function(files) {
           if (files.includes(`${__dirname}\\spc1.txt`)) {
             word = `\nDeleting spc1.txt...`
             for (i = 0; i < word.length; i++) {
@@ -355,47 +355,54 @@ async function settings() {
             await sleep(5)
             }
             await sleep(1500)
-            fs.unlinkSync(`${__dirname}\\spc1.txt`)
+            await fs.unlinkSync(`${__dirname}\\spc1.txt`)
           }
         })
-        await sleep(5000)
+        await sleep(1000)
         word = `\nDeleting start.bat...`
         for (i = 0; i < word.length; i++) {
           process.stdout.write(chalk.yellowBright(word.charAt(i)))
           await sleep(5)
         }
-        fs.unlinkSync(`${__dirname}\\start.bat`)
-        await sleep(5000)
+        await fs.unlinkSync(`${__dirname}\\start.bat`)
         word = `\nDeleting package.json...`
         for (i = 0; i < word.length; i++) {
           process.stdout.write(chalk.redBright(word.charAt(i)))
           await sleep(5)
         }
-        fs.unlinkSync(`${__dirname}\\package.json`)
-        await sleep(5000)
+        await fs.unlinkSync(`${__dirname}\\package.json`)
         word = `\nDeleting package-lock.json...`
         for (i = 0; i < word.length; i++) {
           process.stdout.write(chalk.redBright(word.charAt(i)))
           await sleep(5)
         }
-        fs.unlinkSync(`${__dirname}\\package-lock.json`)
-        await sleep(5000)
+        await fs.unlinkSync(`${__dirname}\\README.md`)
+        word = `\nDeleting README.md...`
+        for (i = 0; i < word.length; i++) {
+          process.stdout.write(chalk.blueBright(word.charAt(i)))
+          await sleep(5)
+        }
+        await fs.unlinkSync(`${__dirname}\\LICENSE`)
+        word = `\nDeleting LICENSE...`
+        for (i = 0; i < word.length; i++) {
+          process.stdout.write(chalk.blueBright(word.charAt(i)))
+          await sleep(5)
+        }
+        await fs.unlinkSync(`${__dirname}\\package-lock.json`)
         word = `\nDeleting node_modules...`
         for (i = 0; i < word.length; i++) {
           process.stdout.write(chalk.redBright(word.charAt(i)))
           await sleep(5)
         }
-        io.write(chalk.redBright('Could not delete node_modules:') + chalk.red(`\nNo permissions!`) + chalk.grey('\nPlease delete the folder manually'))
-        await sleep(5000)
+        io.write(chalk.redBright('\nCould not delete node_modules:') + chalk.red(`\nNo permissions!`) + chalk.grey('\nPlease delete the folder manually'))
         word = `\nDeleting index.js...`
         for (i = 0; i < word.length; i++) {
           process.stdout.write(chalk.redBright(word.charAt(i)))
           await sleep(5)
         }
-        fs.unlinkSync(`${__dirname}\\index.js`)
-        await sleep(5000)
-        io.write(chalk.greenBright('Done.'))
-        exit(99)
+        await fs.unlinkSync(`${__dirname}\\index.js`)
+        io.write(chalk.greenBright('\nDone.'))
+        await exit(999)
       } else if (opt === '4') {
         word = `\nRedirecting to todo...`
         for (i = 0; i < word.length; i++) {
