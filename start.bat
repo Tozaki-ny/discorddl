@@ -1,3 +1,11 @@
+@echo OFF
+node -v 2> Nul
+if "%errorlevel%" == "9009" (
+    echo Node.js could not be found, please install Node.js at https://nodejs.org/en/download/ and run start.bat again
+    timeout /t 30000 /nobreak > NUL
+) else (
+    timeout /t 5
+)
 call cd /d %~dp0
 call npm i discord.js-selfbotbypass
 call npm i chalk
