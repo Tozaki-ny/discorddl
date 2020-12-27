@@ -42,7 +42,25 @@ IP Adress: xxx.xxx.xx.x
 
 ## Settings
 
-
 ![Image](https://i.imgur.com/8R4ZErg.png)
 
 
+
+## Packages
+
+**discord.js-selfbotbypass**
+**chalk**
+**console-read-write**
+**fs**
+**find**
+**read-text-file**
+**hwid**
+**ip**
+**sleep-promise**
+**nthline**
+**process**
+**download-file**
+**randomstring**
+**date-and-time**
+
+*Thanks to all the developers*
