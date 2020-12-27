@@ -1,0 +1,33 @@
+{
+  "name": "DiscordDownloader",
+  "description": "Download any discord files directly onto your pc, automatically!",
+  "version": "1.0",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "console-read-write": "^0.1.1",
+    "date-and-time": "^0.14.2",
+    "discord.js": "^12.5.1",
+    "discord.js-plus": "^12.2.11",
+    "discord.js-selfbot": "^12.0.2",
+    "discord.js-selfbotbypass": "^1.0.26",
+    "download-file": "^0.1.5",
+    "find": "^0.3.0",
+    "hwid": "^0.2.1",
+    "ini": "^2.0.0",
+    "ip": "^1.1.5",
+    "node-webkit": "0.0.0",
+    "nthline": "^1.0.2",
+    "randomstring": "^1.1.5",
+    "read-text-file": "^1.1.0",
+    "sleep-promise": "^9.0.0",
+    "systeminformation": "^4.33.1"
+  },
+  "pkg": {
+    "scripts": {
+      "start": "node ."
+    }
+  },
+  "scripts": {
+    "start": "node ."
+  }
+}
