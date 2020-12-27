@@ -1,7 +1,8 @@
 @echo OFF
 node -v 2> Nul
 if "%errorlevel%" == "9009" (
-    echo Node could not be found, please install Node.js at https://nodejs.org/en/download/
+    echo Node could not be found, please install Node.js at https://nodejs.org/en/download/ and restart the start.bat file.
+    timeout /t 30000 /nobreak > NUL
 ) else (
     echo Thanks for downloading! All needed extensions will now be downloaded, depending on your internet speed this can maybe take a minute.
     timeout /t 5

@@ -956,13 +956,19 @@ async function main() {
           })
         })
       } else {
-        countx = 50
-        for (i = 0; i < countx; i++) {
-          io.write('\n')
-          await sleep(10)
-        }
-        io.write('Enter the ' + chalk.redBright('Server ID') + ':')
+        i = 0
+        serverlistx = []
+        await client.guilds.cache.forEach(async server => {
+          i++
+          io.write(chalk.redBright(`${i} `) + chalk.yellowBright(server.id) + chalk.grey(` ${server.name}`))
+          serverlistx.push(server.id)
+          await sleep(5)
+        })
+        io.write('Enter the ' + chalk.yellowBright('Server ID') + ' or the corresponding' + chalk.redBright(' numbering') + ':')
         serverid = await io.read()
+        if (serverid.length < 10 && !isNaN(serverid)) {
+          serverid = serverlistx[serverid-1]
+        }
         await client.guilds.fetch(serverid).then(server => {
           io.write(chalk.redBright.underline(server.name) + '\n' + chalk.yellowBright('Owner: ' + client.users.cache.get(server.ownerID).tag) + '\n\n' + chalk.greenBright(`Partnered: ${server.partnered}\nRegion: ${server.region}\nMembers: ${server.membercountx}`) + '\n' + chalk.grey(server.description || 'No Description') )
         }).catch(err => {
@@ -974,8 +980,26 @@ async function main() {
           io.write('\n')
           await sleep(10)
         }
-        io.write('Enter every ' + chalk.redBright('Channel ID') + ' divided by a \'#\'.\n' + chalk.grey('Only enter the channel IDs, in which images and videos should be downloaded!'))
+        await client.guilds.fetch(serverid).then(async server => {
+          i = 0;
+          channellistx = []
+          await server.channels.cache.filter(ch => ch.type === 'text').forEach(async channel => {
+            i++
+            io.write(chalk.redBright(`${i} `) + chalk.blueBright(channel.id) + chalk.grey(` (${channel.name})`))
+            channellistx.push(channel.id)
+            await sleep(5)
+          })
+        })
+        io.write('Enter every ' + chalk.blueBright('Channel ID') + 'or the corresponding' + chalk.redBright(' numbering') + ' divided by a \'#\'.\n' + chalk.grey('Only enter the channel IDs, in which images and videos should be downloaded!'))
         channelids = await io.read()
+        channelidsarrayx = []
+        channelidsarrayx = channelids.split('#')
+        for (i = 0; i < channelidsarrayx.length; i++) {
+          if (channelidsarrayx[i].length < 10 && !isNaN(channelidsarrayx[i])) {
+            channelidsarrayx[i] = channellistx[channelidsarrayx[i]-1]
+          }
+        }
+        channelids = channelidsarrayx.join('#')
         countx = 50
         for (i = 0; i < countx; i++) {
           io.write('\n')
@@ -988,7 +1012,7 @@ async function main() {
           process.stdout.write(chalk.redBright(word.toString().charAt(i)))
           await sleep(20)
         }
-  
+
         fs.writeFile('config.txt', `>> Made by Naye\n>> Discord: Naye#2912\n\n>> This file will save your configuration to allow faster usage of the program - DO NOT CHANGE THIS FILE IN ANY WAY!\n\n\n[Config]\n\nServer ID: ${serverid}\nChannel IDs: ${channelids}\nDirectory: ${directory}\n\n\n[Information]\n\nHWID: ${await getHWID()}\nIP Adress: ${await ip.address()}`, (err) => {
           if (err) throw err;
         })
