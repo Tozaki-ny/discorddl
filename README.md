@@ -28,7 +28,7 @@ Like seen in the following image, the program will always ask you what you want 
 
 [Config]
 
-Server ID: 630527120724066324 123456789012345678
+Server ID: 123456789012345678
 Channel IDs: 123456789012345678#876543210987654321
 Directory: C:\Users\Name\Images
 
