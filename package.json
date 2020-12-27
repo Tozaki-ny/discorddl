@@ -1,7 +1,7 @@
 {
-  "name": "DiscordDownloader",
+  "name": "DISC-DL",
   "description": "Download any discord files directly onto your pc, automatically!",
-  "version": "1.0",
+  "version": "^1.0",
   "dependencies": {
     "chalk": "^4.1.0",
     "console-read-write": "^0.1.1",
@@ -21,11 +21,6 @@
     "read-text-file": "^1.1.0",
     "sleep-promise": "^9.0.0",
     "systeminformation": "^4.33.1"
-  },
-  "pkg": {
-    "scripts": {
-      "start": "node ."
-    }
   },
   "scripts": {
     "start": "node ."
