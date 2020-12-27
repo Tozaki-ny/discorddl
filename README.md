@@ -48,19 +48,19 @@ IP Adress: xxx.xxx.xx.x
 
 ## Packages
 
-**discord.js-selfbotbypass**
-**chalk**
-**console-read-write**
-**fs**
-**find**
-**read-text-file**
-**hwid**
-**ip**
-**sleep-promise**
-**nthline**
-**process**
-**download-file**
-**randomstring**
-**date-and-time**
+**discord.js-selfbotbypass**<br>
+**chalk**<br>
+**console-read-write**<br>
+**fs**<br>
+**find**<br>
+**read-text-file**<br>
+**hwid**<br>
+**ip**<br>
+**sleep-promise**<br>
+**nthline**<br>
+**process**<br>
+**download-file**<br>
+**randomstring**<br>
+**date-and-time**<br>
 
 *Thanks to all the developers*
