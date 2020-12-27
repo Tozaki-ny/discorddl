@@ -666,9 +666,9 @@ async function login() {
     rc = 0
     await sleep(150)
     if(files.includes(`${__dirname}\\index.js`)) {
-      io.write(chalk.greenBright(`${__dirname}\\index.js`)), rc = rc + 5
+      io.write(chalk.greenBright(`\n\n\n\n\n${__dirname}\\index.js`)), rc = rc + 5
     } else {
-      io.write(chalk.redBright(`${__dirname}\\index.js`))
+      io.write(chalk.redBright(`\n\n\n\n\n${__dirname}\\index.js`))
     }
     await sleep(150)
     if(files.includes(`${__dirname}\\package.json`)) {
