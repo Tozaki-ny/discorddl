@@ -192,7 +192,7 @@ async function channeldl() {
 }
 
 async function settings() {
-  io.write('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
+  io.write(`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n` + chalk.hex(`#${Math.floor(Math.random()*16777215).toString(16)}`)(discdl) + `\n\n\n\n\n\n\n\n\n\n\n\n\n`)
       word = `     `
       for (i = 0; i < word.length; i++) {
         process.stdout.write(chalk.white(word.charAt(i)))
@@ -229,7 +229,7 @@ async function settings() {
           }
         }
       })
-      await sleep(500)
+      await sleep(1000)
       word = ` - Creates a seperate folder for every channel when downloading files`
       for (i = 0; i < word.length; i++) {
         process.stdout.write(chalk.grey(word.charAt(i)))
@@ -419,10 +419,15 @@ async function settings() {
 }
 
 async function todo() {
-  io.write('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat do you want to do?' + chalk.redBright('\n1 ') + chalk.blueBright('Start the downloader') + chalk.redBright('\n2 ') + chalk.blueBright('Download every attachement from a specific channel') + chalk.grey(' (last 100 messages)') + chalk.redBright('\n3 ') + chalk.blueBright('Settings') + chalk.redBright('\n4 ') + chalk.blueBright('Delete the config file'))
+  find.file(__dirname, async function(files) {
+    if (files.includes(`${__dirname}\\discdl.txt`)) {
+      discdl = readTextFile.readSync(`${__dirname}\\discdl.txt`)
+      io.write(`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n` + chalk.hex(`#${Math.floor(Math.random()*16777215).toString(16)}`)(discdl) + `\n\n\n\n\n\n\n\n\n\n\nWhat do you want to do?` + chalk.redBright('\n1 ') + chalk.blueBright('Start the downloader') + chalk.redBright('\n2 ') + chalk.blueBright('Download every attachement from a specific channel') + chalk.grey(' (last 100 messages)') + chalk.redBright('\n3 ') + chalk.blueBright('Settings') + chalk.redBright('\n4 ') + chalk.blueBright('Delete the config file'))
+    }
+  })
   opt = await io.read()
   if (opt === '1') {
-    io.write('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat do you want to do?' + chalk.redBright('\n1 ') + chalk.yellowBright('Start the downloader') + chalk.redBright('\n2 ') + chalk.blueBright('Download every attachement from a specific channel') + chalk.grey(' (last 100 messages)') + chalk.redBright('\n3 ') + chalk.blueBright('Settings') + chalk.redBright('\n4 ') + chalk.blueBright('Delete the config file'))
+    io.write(`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n` + chalk.hex(`#${Math.floor(Math.random()*16777215).toString(16)}`)(discdl) + `\n\n\n\n\n\n\n\n\n\n\nWhat do you want to do?` + chalk.redBright('\n1 ') + chalk.yellowBright('Start the downloader') + chalk.redBright('\n2 ') + chalk.blueBright('Download every attachement from a specific channel') + chalk.grey(' (last 100 messages)') + chalk.redBright('\n3 ') + chalk.blueBright('Settings') + chalk.redBright('\n4 ') + chalk.blueBright('Delete the config file'))
     find.file(__dirname, async function(files) {
       if (files.includes(`${__dirname}\\token.txt`)) {
         word = 'Do you want to reuse the following token? (y/yes/n/no)' + '\n'
@@ -457,7 +462,7 @@ async function todo() {
       await startup('main')
     })
    } else if (opt === '2') {
-    io.write('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat do you want to do?' + chalk.redBright('\n1 ') + chalk.blueBright('Start the downloader') + chalk.redBright('\n2 ') + chalk.yellowBright('Download every attachement from a specific channel') + chalk.whiteBright(' (last 100 messages)')  + chalk.redBright('\n3 ') + chalk.blueBright('Settings') + chalk.redBright('\n4 ') + chalk.blueBright('Delete the config file'))
+    io.write(`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n` + chalk.hex(`#${Math.floor(Math.random()*16777215).toString(16)}`)(discdl) + `\n\n\n\n\n\n\n\n\n\n\nWhat do you want to do?` + chalk.redBright('\n1 ') + chalk.blueBright('Start the downloader') + chalk.redBright('\n2 ') + chalk.yellowBright('Download every attachement from a specific channel') + chalk.whiteBright(' (last 100 messages)')  + chalk.redBright('\n3 ') + chalk.blueBright('Settings') + chalk.redBright('\n4 ') + chalk.blueBright('Delete the config file'))
     find.file(__dirname, async function(files) {
       if (files.includes(`${__dirname}\\token.txt`)) {
         word = 'Do you want to reuse the following token? (y/yes/n/no)' + '\n'
