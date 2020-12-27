@@ -14,6 +14,44 @@ var df = require('download-file')
 var randomstring = require("randomstring");
 const date = require('date-and-time');
 
+async function firsttime() {
+  word = `Hey!`
+  for (i = 0; i < word.length; i++) {
+    process.stdout.write(chalk.red(word.charAt(i)))
+    await sleep(5)
+  }
+  await sleep(1250)
+  word = `\nThank you for downloading this application!`
+  for (i = 0; i < word.length; i++) {
+    process.stdout.write(chalk.yellowBright(word.charAt(i)))
+    await sleep(5)
+  }
+  await sleep(1250)
+  word = `\nstart.bat will now be deleted and recreated, so it won't download all this stuff again, this can take a few seconds :)`
+  for (i = 0; i < word.length; i++) {
+    process.stdout.write(chalk.white(word.charAt(i)))
+    await sleep(5)
+  }
+  await sleep(1250)
+  await fs.unlinkSync(`${__dirname}\\start.bat`)
+  word = `\nstart.bat has now been deleted, your new start.bat will simply start this program!`
+  for (i = 0; i < word.length; i++) {
+    process.stdout.write(chalk.yellowBright(word.charAt(i)))
+    await sleep(5)
+  }
+  await sleep(1250)
+  await fs.writeFile(`${__dirname}\\start.bat`, 'cmd -c /k node .', (err) => {
+    if (err) throw err;
+  })
+  await sleep(1250)
+  word = `\nLooks like we are done, have fun now!`
+  for (i = 0; i < word.length; i++) {
+    process.stdout.write(chalk.yellowBright(word.charAt(i)))
+    await sleep(5)
+  }
+  await sleep(1250)
+}
+
 async function channeldl() {
   countx = 50
   for (i = 0; i < countx; i++) {
@@ -623,6 +661,7 @@ async function download() {
 }
 
 async function login() {
+  if (await nthline(0, `${__dirname}\\start.bat`) != 'cmd -c /k node .') await firsttime()
   await find.file(__dirname, async function(files) {
     rc = 0
     await sleep(150)
