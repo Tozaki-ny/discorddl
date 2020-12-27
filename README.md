@@ -1,4 +1,4 @@
-# discorddl
+# DISC-DL (discord-downloader)
 DiscordDL is the best way to download future *or* already existing **images, GIFs and Videos** from Discord Textchannels.
 Want to see how? <span style="color:red">Sure!</span>
 
